@@ -14,6 +14,10 @@ Plugin source and config vars are required for using this plugin. if you already
 	git commit -m "add heroku plugin"
 	git push heroku master
 
+To load this plugin, add Plugin::load into your app/Config/bootstrap.php
+
+	CakePlugin::load('Heroku',array('bootstrap' => true));
+
 # Todo
 - Schema migration.
 - log availability from heroku log command.
