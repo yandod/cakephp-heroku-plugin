@@ -18,6 +18,13 @@ To load this plugin, add Plugin::load into your app/Config/bootstrap.php
 
 	CakePlugin::load('Heroku',array('bootstrap' => true));
 
+# I wanna manage database over CakePHP
+
+	heroku config:add LD_LIBRARY_PATH=/app/php/ext
+	heroku run bash
+	cd /app/www/app
+	 /app/bin/php ./Console/cake.php schema create
+
 # Todo
 - Schema migration.
 - log availability from heroku log command.
