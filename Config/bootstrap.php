@@ -1,9 +1,12 @@
 <?php
-$dsn = getenv('HEROKU_POSTGRESQL_PURPLE_URL');
-$regexp = '/(?P<driver>[a-z]*):\/\/(?P<username>[a-zA-Z0-9]*):(?P<password>[a-zA-Z0-9\-_]*)@(?P<host>[a-zA-Z0-9\-\.]*)\/(?P<database>[a-zA-Z0-9]*)/';
+$dsn = getenv('DATABASE_URL');
+$regexp = '/(?P<driver>[a-z]*):\/\/(?P<username>[a-zA-Z0-9]*):(?P<password>[a-zA-Z0-9\-_]*)@(?P<host>[a-zA-Z0-9\-\.]*):[0-9]*\/(?P<database>[a-zA-Z0-9]*)/';
 
 $matches = array();
 preg_match($regexp, $dsn, $matches);
+
+var_dump($matches);
+exit;
 
 define('HEROKU_DB_HOST', $matches['host']);
 define('HEROKU_DB_USER', $matches['username']);
