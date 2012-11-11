@@ -5,9 +5,6 @@ $regexp = '/(?P<driver>[a-z]*):\/\/(?P<username>[a-zA-Z0-9]*):(?P<password>[a-zA
 $matches = array();
 preg_match($regexp, $dsn, $matches);
 
-var_dump($matches);
-exit;
-
 define('HEROKU_DB_HOST', $matches['host']);
 define('HEROKU_DB_USER', $matches['username']);
 define('HEROKU_DB_PASS', $matches['password']);
